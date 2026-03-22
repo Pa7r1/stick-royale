@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>STICK ROYALE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,300;0,400;0,500&display=swap" rel="stylesheet" />
+  <style>
+    /* Reset total */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --red:    #ff4040;
+      --green:  #3ddc84;
+      --gold:   #ffc940;
+      --blue:   #40b4ff;
+      --bg:     #08090f;
+      --surface:#11141e;
+      --border: #1c2030;
+      --text:   #e8e8f0;
+      --muted:  #4a4e66;
+    }
+
+    html, body {
+      width: 100%; height: 100%;
+      background: var(--bg);
+      overflow: hidden;
+      font-family: 'DM Mono', monospace;
+      color: var(--text);
+      -webkit-tap-highlight-color: transparent;
+      touch-action: none;
+      user-select: none;
+    }
+
+    /* Three.js canvas ocupa todo */
+    #canvas-container {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+    }
+
+    /* HUD y UI encima del canvas */
+    #ui-root {
+      position: fixed;
+      inset: 0;
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    /* Pantallas de lobby y gameover con pointer-events */
+    #lobby-screen,
+    #gameover-screen {
+      pointer-events: all;
+    }
+  </style>
+</head>
+<body>
+  <div id="canvas-container"></div>
+  <div id="ui-root">
+    <!-- Lobby -->
+    <div id="lobby-screen"></div>
+    <!-- HUD en partida -->
+    <div id="hud"></div>
+    <!-- Game over -->
+    <div id="gameover-screen"></div>
+    <!-- Joystick táctil -->
+    <div id="joystick-container"></div>
+  </div>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
